@@ -1,0 +1,106 @@
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+    
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+    align-items: center;
+}
+
+nav{
+    position: relative;
+    top: 1rem;
+    right: 3rem;
+
+}
+
+nav a{
+    color: wheat;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: greenyellow;
+}
+
+
+section>li{
+    color: white;
+    font-size: 0.5rem;
+}
+
+.education{
+    font-size: 300;
+}
+
+h1{
+    font-size: 4rem;
+    padding-top: rem;
+}
+
+
+
+section{
+    border-radius: 2rem;
+    padding: 10px 10px 10px 20px;
+    margin : 20px 40px 20px 40px;
+
+    border-top: 5px solid tomato;
+    border-bottom:  5px solid tomato;
+    border-left: 3px solid ;
+    border-right: 3px solid;
+
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+
+
+nav{
+    margin-left: 2rem;
+    font-size: 1.5rem;
+}
+
+a{
+    color: white;
+    padding-left: 2rem;
+    padding-bottom: 0px;
+}
+p{
+    font-size: 1.5rem;
+    padding-top: 0rem;
+    padding-left: 2rem;
+}
+
+
+article{
+   
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5rem;
+    margin-right: 3rem;
+  
+}
+
+
+
+.contain{
+   float: right;
+   padding: 2rem;
+
+}
+
+footer{
+    text-align: center;
+    margin : 20px 10px 20px 10px;
+    font-size: 1.5rem;
+    background-color:white;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
