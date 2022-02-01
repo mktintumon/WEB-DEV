@@ -1,20 +1,20 @@
-// let a = 'Hello'
+let a = 'Hello'
 
-// console.log(a , typeof(a))
+console.log(a , typeof(a))
 
-// let b = 2.5
+let b = 2.5
 
-// console.log(b , typeof(b))
+console.log(b , typeof(b))
 
-// let c = true
-// console.log(c , typeof(c))
+let c = true
+console.log(c , typeof(c))
 
 
-// let d = undefined
-// console.log(d , typeof(d))
+let d = undefined
+console.log(d , typeof(d))
 
-// let e = null
-// console.log(e , typeof(e))
+let e = null
+console.log(e , typeof(e))
 
 
 
