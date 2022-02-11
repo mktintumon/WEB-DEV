@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Mohit",
+    "last name": "kumar",
+    "age": "22",
+    "isBoy": true,
+    "friends": ["pd", "abhi", "bharat"],
+    "address": { "city": "banka", "state": "bihar" }
+  },
+  {
+    "name": "Mktintumon",
+    "last name": "kumar",
+    "age": "20",
+    "isBoy": true,
+    "friends": ["priyadarshan", "abhishek", "bharat"],
+    "address": { "city": "amarpur", "state": "bihar" }
+  },
+  {
+    "name": "Thor",
+    "last name": "Odinson",
+    "isBoy": true,
+    "age": 102,
+    "friends": ["Tony", "Peter", "Bruce"],
+    "address": { "city": "Asgard" }
+  },
+  {
+    "name": "Thor",
+    "last name": "Odinson",
+    "isBoy": true,
+    "age": 102,
+    "friends": ["Tony", "Peter", "Bruce"],
+    "address": { "city": "Asgard" }
+  },
+  {
+    "name": "Thor",
+    "last name": "Odinson",
+    "isBoy": true,
+    "age": 102,
+    "friends": ["Tony", "Peter", "Bruce"],
+    "address": { "city": "Asgard" }
+  }
+]
