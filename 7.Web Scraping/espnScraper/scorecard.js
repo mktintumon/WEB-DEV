@@ -1,5 +1,8 @@
 const request = require("request")
 const cheerio = require('cheerio')
+const path = require('path')
+const fs = require('fs')
+const xlsx = require('xlsx')
 
 //let url = 'https://www.espncricinfo.com/series/ipl-2020-21-1210595/mumbai-indians-vs-chennai-super-kings-1st-match-1216492/full-scorecard'
 
@@ -53,7 +56,7 @@ function getMatchDetail(html){
            let currInning = $(innings[i])
            let allRows = currInning.find('.table.batsman tbody tr')
 
-        for(let j=0 ;  j< allRows.length ; j++){
+        for(let j=0 ;  j<allRows.length ; j++){
 
             let allCols = $(allRows[j]).find('td')
             let useful = $(allCols[0]).hasClass('batsman-cell')
@@ -66,7 +69,23 @@ function getMatchDetail(html){
                let sixes = $(allCols[6]).text().trim() 
                let STR = $(allCols[7]).text().trim()
 
+               //template literal use
                console.log(`${playerName} | ${runs} | ${balls} | ${fours} | ${sixes} | ${STR}`)
+
+               processPlayer(
+                teamName,
+                oppoName,
+                playerName,
+                runs,
+                balls,
+                fours,
+                sixes,
+                STR,
+                venue,
+                date,
+                result
+              );
+
             }
         }
 
@@ -74,6 +93,78 @@ function getMatchDetail(html){
     } 
 }
 
+function processPlayer(
+    teamName,
+    opponentName,
+    playerName,
+    runs,
+    balls,
+    fours,
+    sixes,
+    STR,
+    venue,
+    date,
+    result
+  ){
+      let teamPath = path.join(__dirname , "IPL" , teamName )
+      dirCreator(teamPath)
+
+      let filePath = path.join(teamPath , playerName + ".xlsx")
+
+      let content = excelReader(filePath, playerName)
+
+      //Making json 
+      //if key name and value name is same then we only write key name
+      let playerObj = {
+        playerName,
+        teamName,
+        opponentName,
+        runs,
+        balls,
+        fours,
+        sixes,
+        STR,
+        venue,
+        date,
+        result,
+      };
+
+      content.push(playerObj)
+
+      excelWriter(filePath , playerName , content)
+}
+
+  function dirCreator(folderPath) {
+    if (fs.existsSync(folderPath) == false) {
+      fs.mkdirSync(folderPath)
+    }
+  }
+
+  //xlsx npm work
+
+  function excelWriter(fileName, sheetName, jsonData) {
+    // Creating a new WorkBook
+    let newWB = xlsx.utils.book_new();
+
+    // Json is converted to sheet format (rows and cols)
+    let newWS = xlsx.utils.json_to_sheet(jsonData);
+    
+    xlsx.utils.book_append_sheet(newWB, newWS, sheetName);
+    xlsx.writeFile(newWB, fileName);
+  }
+  
+  function excelReader(fileName, sheetName) {
+    // one edge case to handle 
+    if (fs.existsSync(fileName) == false) {
+      return [];
+    }
+    let wb = xlsx.readFile(fileName);
+  
+    let excelData = wb.Sheets[sheetName];
+    let ans = xlsx.utils.sheet_to_json(excelData);
+    return ans
+  }
+
 module.exports={
     psc : processScoreCard
-}
+};

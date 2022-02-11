@@ -3,6 +3,7 @@ const cheerio = require('cheerio')
 
 const scoreCardObj = require('./scorecard')
 
+
 function getAllMatchLink(uri){
     request(uri , function(error , response , html){
         if(error){
@@ -14,6 +15,7 @@ function getAllMatchLink(uri){
     })
 }
 
+//just manage the all links of every match
 function extractAllLink(html){
     let $ = cheerio.load(html)
 

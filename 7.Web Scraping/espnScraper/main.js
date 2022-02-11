@@ -9,10 +9,13 @@ const fs = require('fs')
 
 let iplPath = path.join(__dirname , "IPL")
 function dirCreator(filepath){
-    if(fs.existsSync(filepath) == true){
-          fs.mkdirSync()
+    if(fs.existsSync(filepath) == false){
+          fs.mkdirSync(filepath)
     }
 }
+
+dirCreator(iplPath)
+
 
 request(url , cb)
 
@@ -35,7 +38,7 @@ function extractLink(html){
     //console.log(link)
 
     let fullLink = "https://www.espncricinfo.com/" + link
-    //console.log(fullLink)
+    console.log(fullLink)
 
     getLinkObj.getAllMatch(fullLink)
     
