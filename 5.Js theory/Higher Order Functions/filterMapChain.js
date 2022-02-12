@@ -21,8 +21,4 @@ let gender = arr.filter(function(i){
 
 console.log(gender)
 
-// let femaleAge = gender.map(function(i){
-//     return i.age
-// })
 
-// console.log(femaleAge)
