@@ -25,3 +25,14 @@ function cb3(data) {
 }
 
 console.log("after");
+
+// we can improve above code by reducing repeated then calls
+// and in each function we replace then call by return the variable
+
+/*
+         // Method chaining
+f1p.then(cb).then(cb2).then(cb3).catch(function(err){
+      console.log(err)
+})
+
+*/
