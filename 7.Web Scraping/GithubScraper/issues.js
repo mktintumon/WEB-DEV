@@ -32,6 +32,7 @@ function getIssuesPageHtml(url , topic , repoName){
 
         console.log(topic + "     "+arr)
 
+        //Folder -> file -> pdf making   process
         let folderPath = path.join(__dirname , topic);
         dirCreatoer(folderPath)
         let filePath = path.join(folderPath , repoName +".pdf")
