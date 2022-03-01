@@ -9,9 +9,9 @@
 //   console.log("Yay it's a string!");
 // }
 
-// A: It's not a string!
-// B: Yay it's a string!
-// C: TypeError
+// A: It's not a string! *
+// B: Yay it's a string! 
+// C: TypeError 
 // D: undefined
 
 // // < --------------Question 2----------------->
@@ -27,7 +27,7 @@
 // console.log(user.email)
 
 // A: my@email.com
-// B: new@email.com
+// B: new@email.com *
 // C: undefined
 // D: ReferenceError
 
@@ -42,7 +42,7 @@
 
 // A: ['🍌', '🍊', '🍎']
 // B: ['🍊', '🍎']
-// C: ['🍇', '🍊', '🍎']
+// C: ['🍇', '🍊', '🍎'] *
 // D: ['🍇', '🍌', '🍊', '🍎']
 
 // // < --------------Question 4----------------->
@@ -59,7 +59,7 @@
 // A: 1
 // B: 2
 // C: 3
-// D: 4
+// D: 4 *
 
 // // < --------------Question 5----------------->
 
@@ -89,7 +89,7 @@
 // myFunc(3);
 
 // A: 2 4 and 3 6
-// B: 2 NaN and 3 NaN
+// B: 2 NaN and 3 NaN *
 // C: 2 Error and 3 6
 // D: 2 4 and 3 Error
 
@@ -106,7 +106,7 @@
 
 // A: person.name = "Evan Bacon"
 // B: delete person.address
-// C: person.address.street = "101 Main St"
+// C: person.address.street = "101 Main St" *
 // D: person.pet = { name: "Mara" }
 
 // // < --------------Question 8----------------->
@@ -114,7 +114,7 @@
 // const person = { name: 'Lydia Hallie' };
 
 // Object.seal(person);
-// A: person.name = "Evan Bacon"
+// A: person.name = "Evan Bacon" *
 // B: person.age = 21
 // C: delete person.name
 // D: Object.assign(person, { age: 21 })
@@ -125,7 +125,7 @@
 
 // console.log(emojis.flat(1));
 // A: ['🥑', ['✨', '✨', ['🍕', '🍕']]]
-// B: ['🥑', '✨', '✨', ['🍕', '🍕']]
+// B: ['🥑', '✨', '✨', ['🍕', '🍕']] *
 // C: ['🥑', ['✨', '✨', '🍕', '🍕']]
 // D: ['🥑', '✨', '✨', '🍕', '🍕']
 
@@ -142,7 +142,7 @@
 // A: "number"
 // B: "string"
 // C: undefined
-// D: ReferenceError
+// D: ReferenceError *
 
 // // < --------------Question 11----------------->
 
@@ -159,7 +159,7 @@
 
 // add(4);
 
-// A: 4 5 6
+// A: 4 5 6 *
 // B: 6 5 4
 // C: 4 function function
 // D: undefined undefined 6
@@ -177,7 +177,7 @@
 
 // A: We have to buy bananas!
 // B: We don't have to buy bananas
-// C: undefined
+// C: undefined *
 // D: 1
 
 // // < --------------Question 13----------------->
@@ -200,7 +200,7 @@
 // console.log(member.getLastName?.());
 
 // A: undefined undefined undefined undefined
-// B: Mara undefined Lydia Hallie ReferenceError
+// B: Mara undefined Lydia Hallie ReferenceError *
 // C: Mara null Lydia Hallie null
 // D: null ReferenceError null ReferenceError
 
@@ -211,7 +211,7 @@
 
 // console.log(list[(num += 1)]);
 // A: 🤠
-// B: 🥰
+// B: 🥰 *
 // C: SyntaxError
 // D: ReferenceError
 
@@ -255,7 +255,7 @@
 // info.favoriteFood = '🍝';
 
 // console.log(food);
-// A: ['🍕', '🍫', '🥑', '🍔']
+// A: ['🍕', '🍫', '🥑', '🍔'] *
 // B: ['🍝', '🍫', '🥑', '🍔']
 // C: ['🍝', '🍕', '🍫', '🥑', '🍔']
 // D: ReferenceError
@@ -275,7 +275,7 @@
 // console.log(colorConfig.colors[1]);
 // A: true
 // B: false
-// C: undefined
+// C: undefined *
 // D: TypeError
 
 // // < --------------Question 19----------------->
@@ -290,7 +290,7 @@
 // console.log(nums(4, 2));
 // console.log(nums(1, 2));
 
-// A: a is bigger, 6 and b is bigger, 3
+// A: a is bigger, 6 and b is bigger, 3 *
 // B: a is bigger, undefined and b is bigger, undefined
 // C: undefined and undefined
 // D: SyntaxError
@@ -306,7 +306,7 @@
 // for (const [x, y] of Object.entries(person)) {
 //   console.log(x, y);
 // }
-// A: name Lydia and age 21
+// A: name Lydia and age 21 *
 // B: ["name", "Lydia"] and ["age", 21]
 // C: ["name", "age"] and undefined
 // D: Error
@@ -316,8 +316,8 @@
 // let newList = [1, 2, 3].push(4);
 
 // console.log(newList.push(5));
-// A: [1, 2, 3, 4, 5]
-// B: [1, 2, 3, 5]
+// A: [1, 2, 3, 4, 5] 
+// B: [1, 2, 3, 5] *
 // C: [1, 2, 3, 4]
 // D: Error
 
@@ -326,7 +326,7 @@
 // A: """
 // B: "I"
 // C: SyntaxError
-// D: undefined
+// D: undefined *
 
 // // < --------------Question 23----------------->
 
@@ -343,7 +343,7 @@
 // console.log(checkAge(21));
 // A: "Sorry, you're too young."
 // B: "Yay! You're old enough!"
-// C: ReferenceError
+// C: ReferenceError *
 // D: undefined
 
 // // < --------------Question 24----------------->
@@ -369,7 +369,7 @@
 
 // console.log(admin);
 // A: { admin: true, user: { name: "Lydia", age: 21 } }
-// B: { admin: true, name: "Lydia", age: 21 }
+// B: { admin: true, name: "Lydia", age: 21 } *
 // C: { admin: true, user: ["Lydia", 21] }
 // D: { admin: true }
 
@@ -377,7 +377,7 @@
 
 // console.log(3 + 4 + '5');
 // A: "345"
-// B: "75"
+// B: "75" *
 // C: 12
 // D: "12"
 
@@ -395,7 +395,7 @@
 // A: { name: "Lydia" }, { age: 21 }
 // B: "name", "age"
 // C: "Lydia", 21
-// D: ["name", "Lydia"], ["age", 21]
+// D: ["name", "Lydia"], ["age", 21]*
 
 // // < --------------Question 28----------------->
 
@@ -405,7 +405,7 @@
 // A: [1, 2, 3, 7 x null, 11]
 // B: [1, 2, 3, 11]
 // C: [1, 2, 3, 7 x empty, 11]
-// D: SyntaxError
+// D: SyntaxError *
 
 // // < --------------Question 29----------------->
 
@@ -429,6 +429,6 @@
 
 // console.log(num);
 // A: 8
-// B: 10
+// B: 10 *
 // C: SyntaxError
 // D: ReferenceError
