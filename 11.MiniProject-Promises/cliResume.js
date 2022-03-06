@@ -8,16 +8,16 @@ function displayList() {
             {
                 type: 'list',
                 name: 'selection',
-                choices: ['About', 'Skills', 'Github Repo', 'Projects']
+                choices: ['About', 'Skills', 'Github Repo', 'Academics', 'Projects']
 
             }
         ])
         .then(function (ans) {
             if (ans.selection == 'About') {
                 console.log(`I am a computer science graduate and an aspiring software developer.
-                            Having good knowledge in DS and Algorithms.My interest include web 
-                            development and open source contribution.I am a hard working individual 
-                            and always bound myself in smaller goals for achieving bigger goals.`)
+                Having good knowledge in DS and Algorithms.My interest include web 
+                development and open source contribution.I am a hard working individual 
+                and always bound myself in smaller goals for achieving bigger goals.`)
 
                 displayNext()
             }
@@ -25,6 +25,11 @@ function displayList() {
                 console.log('Java , Javascript , NodeJs , ReactJs , Automation , WebScraping')
 
                 displayNext()
+            }
+            else if(ans.selection == 'Academics'){
+                console.log('Bsc(H) Computer Science , University Of Delhi(2020)')
+
+                displayNext()            
             }
             else if (ans.selection == 'Github Repo') {
                 cp.execSync('start chrome https://github.com/mktintumon')
