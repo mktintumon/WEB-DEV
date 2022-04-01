@@ -19,13 +19,13 @@ body{
 }
 
 .toolbox-cont > * {
-    margin-left: 4rem;
+    margin-left: 2rem;
     border-radius: 3px;
 }
 
 .toolbox-priority-cont {
     height: 3.5rem;
-    width: 17rem;
+    width: 15rem;
     background-color: darkgray;
     display: flex;
     align-items: center;
@@ -35,7 +35,7 @@ body{
 
 .action-btn-cont {
     height: 3.5rem;
-    width: 6rem;
+    width: 5rem;
     background-color: darkgray;
     display: flex;
 }
@@ -165,5 +165,46 @@ body{
     margin-top: 75px;
     font-size: 1.5rem;
     margin-right: 5px;
+    color: darkgrey;
+}
+
+@media screen and (min-width:425px) and (max-width:768px){
+    .modal-cont{
+        width: 60vw;
+        left: calc((100vw - 60vw) / 2);
+        height: 50vh;
+        top: calc((100vh - 50vh) / 2);
+    }
+
+    .priority-color{
+        height: 20%;
+    }
+}
+
+@media screen and (max-width:426px){
+    .modal-cont{
+        width: 75vw;
+        height: 50vh;
+        left: calc((100vw - 75vw) / 2);
+        top: calc((100vh - 50vh) / 2);
+        flex-direction: column;
+    }
+    
+    .textarea-cont{
+        width: 100%;
+        height: 75%;
+    }
+
+    .priority-colors-cont {
+        flex-direction: row;
+        width: 100%;
+        height: 25%;
+    }
+
+    .priority-color{
+        width: 20%;
+        height: 2.5rem;
+    }
+
 }
 
