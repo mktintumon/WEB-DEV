@@ -7,7 +7,7 @@ function Todo() {
 
   let additems = (items) =>{
     setInputArray([...inputArray , items])
-    setInputItem = ""
+    setInputItem('')
   }
 
   return (
