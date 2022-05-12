@@ -32,12 +32,12 @@ export class Todo extends Component {
 
 
    handleDelete = (id) => {
-    let narr = this.state.tasks.filter((taskObj) => {
+    let newArr = this.state.tasks.filter((taskObj) => {
       return taskObj.id != id;
     });
 
     this.setState({
-      tasks: [...narr]
+      tasks: [...newArr]
     });
   };
 
