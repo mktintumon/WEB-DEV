@@ -1,9 +1,11 @@
 import './App.css';
 import Fireauth from './Components/Fireauth';
+import Firestore from './Components/Firestore';
 
 function App() {
   return (
-    <Fireauth/>
+    // <Fireauth/>
+    <Firestore/>
   );
 }
 
