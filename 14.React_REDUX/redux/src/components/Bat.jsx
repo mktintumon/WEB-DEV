@@ -1,34 +1,44 @@
-import React,{useState} from "react";
-
-function Bat() {
-  const [bat , setBat] = useState(10)
-  const[sell , changeBat] = useState("")
-
-  const sellBat = () => {
-    setBat(bat - sell)
-    changeBat("")
-  }
-
-  const buyBat = () => {
-    setBat(bat + sell)
-    changeBat("")
-  }
-
+import React from "react";
+import { connect } from "react-redux";
+function Bat(props) {
+  console.log(props);
   return (
     <>
-      <h1>This is Bat</h1>
-      <h2>No of Balls : {bat}</h2>
-
-      <input type="text" value={sell} onChange={(e)=>{
-        let value = e.target.value
-        changeBat(value)
-      }} />
-      &nbsp;&nbsp;
-      <button onClick={sellBat}>SELL</button> 
-      &nbsp;&nbsp;
-      <button onClick={buyBat}>BUY</button>
+      <h1>Bat</h1>
+      <h2>No of Bat:{props.bat}</h2>
+      <input
+        type="text"
+        value={props.value}
+        onChange={(e) => {
+          let value = e.target.value;
+          props.setValue(value);
+        }}
+      />
+      <button onClick={props.sellBat}>Sell</button>
+      <button onClick={props.buyBat}>Buy</button>
     </>
   );
 }
+const mapStateToProps = (store) => {
+  return store.Bat;
+};
+const mapDispatchtoProps = (dispatch) => {
+  return {
+    sellBat: () => {
+      dispatch({ type: "sell_bat" });
+    },
+    buyBat: () => {
+      dispatch({ type: "buy_bat" });
+    },
+    setValue: (value) => {
+      dispatch({
+        type: "set_value",
+        payload: value,
+      });
+    },
+  };
+};
 
-export default Bat;
+const connectdWIthpropsFns = connect(mapStateToProps, mapDispatchtoProps);
+const connectedWithBat = connectdWIthpropsFns(Bat);
+export default connectedWithBat;

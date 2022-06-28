@@ -1,25 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
 
-// USING useState 
-
-function Ball() {
-  const [ball, setBall] = useState(10);
-
-  const increment = () => {
-    setBall(ball + 1);
-  };
-  const decrement = () => {
-    setBall(ball - 1);
-  };
-
+function Ball(props) {
+  console.log(props);
   return (
     <>
-      <h1>This is Ball</h1>
-      <h2>No of Balls : {ball}</h2>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+      <h1>Balls</h1>
+      <h2>No of Balls:{props.balls}</h2>
+      <button onClick={props.buyBall}>+</button>
+      <button onClick={props.sellBall}>-</button>
     </>
   );
 }
 
-export default Ball;
+// this will send data to props to above function as argument
+const mapStateToProps = (store) => {
+  return store.Ball;
+};
+
+// dispatch
+const mapDispatchtoProps = (dispatch) => {
+  return {
+    sellBall: () => {
+      dispatch({
+        type: "decrement",
+      });
+    },
+    buyBall: () => {
+      dispatch({
+        type: "increment",
+      });
+    },
+  };
+};
+
+// to give access to the component to two things
+//  first store  -> mapsstatetoprops
+// second  -> dispatch -> mapdispatchtoprops
+const connectdWIthpropsFns = connect(mapStateToProps, mapDispatchtoProps);
+
+const connectedWithBall = connectdWIthpropsFns(Ball);
+export default connectedWithBall;

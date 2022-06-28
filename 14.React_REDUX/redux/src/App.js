@@ -1,14 +1,16 @@
 import './App.css';
-import Ball from './components/Ball';
-import Ball2 from './components/Ball2';
-import Bat from './components/Bat';
+import Ball from './components/Ball'
+import Bat from './components/Bat'
+import { Provider } from 'react-redux'
+import store from './store'
 
 function App() {
   return (
     <>
-    {/* <Ball></Ball> */}
-    {/* <Ball2></Ball2> */}
-    <Bat></Bat>
+      <Provider store={store}>
+        <Ball></Ball> 
+        <Bat></Bat> 
+      </Provider>
     </>
   );
 }
