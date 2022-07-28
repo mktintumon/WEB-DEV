@@ -12,7 +12,7 @@
 
 const mongoose = require('mongoose');
 
-let dbLink = 'mongodb+srv://mktintumon:QGzSRk8PxGVel3Cu@cluster0.krtav.mongodb.net/?retryWrites=true&w=majority'
+let dbLink = 'mongodb+srv://mktintumon:<password>@cluster0.krtav.mongodb.net/?retryWrites=true&w=majority'
 mongoose
     .connect(dbLink)
     .then(() => {
