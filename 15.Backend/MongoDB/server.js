@@ -72,6 +72,55 @@ app.post('/login', async (req, res) => {
 })
 
 
+//FORGET PASSWORD
+app.patch('/forgetPassword', async (req, res) => {
+    try {
+        let { email } = req.body;
+        let otp = otpGenerator();
+
+        let user = await FoodUserModel.findOneAndUpdate({
+            email: email,
+        },
+            { otp: otp },
+            { new: true });
+
+        console.log(user);
+        res.json({
+            data: user,
+            "message": "OTP has been sent successfully"
+        })
+
+    } catch (error) {
+        res.end(error.message);
+    }
+})
+
+function otpGenerator() {
+    return Math.floor(100000 + Math.random() * 900000);
+}
+
+
+// RESET PASSWORD
+app.patch('/resetPassword', async (req, res) => {
+    try {
+        let { otp, password, confirmPassword } = req.body;
+        let user = await FoodUserModel.findOneAndUpdate({
+            otp
+        },
+            { password, confirmPassword, otp: undefined },
+            { runValidators: true, new: true });
+
+        console.log(user);
+        res.json({
+            data: user,
+            message: "Password for the user resets"
+        })    
+    } catch (error) {
+        res.end(error.message)
+    }
+})
+
+
 // Get All user information from database
 app.get('/users', protectRoute, async (req, res) => {
     try {
@@ -89,8 +138,8 @@ app.get('/user', protectRoute, async (req, res) => {
         const userId = req.userId;
         const user = await FoodUserModel.findById(userId);
         res.json({
-            data : user,
-            message : "Data of user sent"
+            data: user,
+            message: "Data of user sent"
         })
 
     } catch (error) {
@@ -109,9 +158,9 @@ function protectRoute(req, res, next) {
 
             //verify token
             let token = jwt.verify(JWT, secrets.JWTSECRETS);
-            console.log("Encrypted token" , token);
+            console.log("Encrypted token", token);
             let userId = token.data;
-            console.log("userId" , userId);
+            console.log("userId", userId);
             req.userId = userId
 
             next();
