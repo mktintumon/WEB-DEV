@@ -1,13 +1,23 @@
 const express = require('express');
 const app = express();
 
+// npm install cookie-parser
+const cookieParser = require("cookie-parser");
+
+//npm install jsonwebtoken
+const jwt = require("jsonwebtoken");
+const secrets = require("./secrets")
+
 //represent collections
 const FoodUserModel = require('./mongoose')
 
 app.use(express.json());
+app.use(cookieParser())
 
 // async behaviour
-app.post('/signup' , async (req, res)=>{
+
+// SIGNUP
+app.post('/signup', async (req, res) => {
     // name-->password-->confirmpassword-->phonenumber-->email-->address
     try {
         let data = req.body;
@@ -19,23 +29,108 @@ app.post('/signup' , async (req, res)=>{
     } catch (err) {
         res.end(err.message);
     }
-
-    /*   output recieved ----> mongoDB gives unique id to every user
-         
-        {
-            _id: new ObjectId("62d8e93c26a645e41e9a32c8"),
-            name: 'mohit',
-            email: 'abcd@gmail.com',
-            password: 'abcd',
-            confirmPassword: 'abcd',
-            pic: 'mohit1.jpg',
-            __v: 0
-        }
-    
-    */
-
 })
 
-app.listen(3000 , function(){
+
+// LOGIN
+app.post('/login', async (req, res) => {
+    try {
+        let data = req.body;
+        let { email, password } = data;
+
+        if (email && password) {
+            let user = await FoodUserModel.findOne({ email: email });
+
+            if (user) {
+                if (user.password == password) {
+                    // argument -> payload and secrets and algoritm (date->optional)
+                    const token = jwt.sign({
+                        data: user["_id"],
+                        // expiry of 1 day
+                        exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24),
+                    }, secrets.JWTSECRETS);
+
+                    res.cookie("JWT", token);
+                    res.end("Login successful!");
+                }
+                else {
+                    res.end("Wrong password. Login failed!");
+                }
+            }
+            else {
+                res.end("User with this email not exists");
+            }
+        }
+        else {
+            res.end("Kindly Enter your email and password both!");
+        }
+
+
+    } catch (err) {
+        res.end(err.message);
+    }
+})
+
+
+// Get All user information from database
+app.get('/users', protectRoute, async (req, res) => {
+    try {
+        let users = await FoodUserModel.find();
+        res.json(users);
+
+    } catch (error) {
+        res.end(error.message);
+    }
+})
+
+// Get single user information from database
+app.get('/user', protectRoute, async (req, res) => {
+    try {
+        const userId = req.userId;
+        const user = await FoodUserModel.findById(userId);
+        res.json({
+            data : user,
+            message : "Data of user sent"
+        })
+
+    } catch (error) {
+        res.end(error.message);
+    }
+})
+
+function protectRoute(req, res, next) {
+    // console.log(req.cookies);
+    const cookies = req.cookies;
+    const JWT = cookies.JWT;
+
+    try {
+        if (cookies.JWT) {
+            console.log("ProtectRoute Encountered");
+
+            //verify token
+            let token = jwt.verify(JWT, secrets.JWTSECRETS);
+            console.log("Encrypted token" , token);
+            let userId = token.data;
+            console.log("userId" , userId);
+            req.userId = userId
+
+            next();
+        }
+        else {
+            console.log("Kindly login");
+        }
+
+    } catch (err) {
+        console.log(err);
+
+        if (err.message == "invalid signature") {
+            res.end("Token invalid kindly login");
+        } else {
+            res.end(err.message);
+        }
+    }
+}
+
+app.listen(3000, function () {
     console.log("server started at port 3000");
 })
