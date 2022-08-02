@@ -76,12 +76,13 @@ app.post('/login', async (req, res) => {
 app.patch('/forgetPassword', async (req, res) => {
     try {
         let { email } = req.body;
+        let expiryTime = Date.now() + 5 * 60 * 1000; // 5 minutes
         let otp = otpGenerator();
 
         let user = await FoodUserModel.findOneAndUpdate({
             email: email,
         },
-            { otp: otp },
+            { otp: otp, otpExpiry: expiryTime },
             { new: true });
 
         console.log(user);
@@ -96,27 +97,59 @@ app.patch('/forgetPassword', async (req, res) => {
 })
 
 function otpGenerator() {
-    return Math.floor(100000 + Math.random() * 900000);
+    // 6 digit otp
+    return Math.floor(100000 + Math.random() * 900000)
 }
 
 
 // RESET PASSWORD
 app.patch('/resetPassword', async (req, res) => {
     try {
-        let { otp, password, confirmPassword } = req.body;
-        let user = await FoodUserModel.findOneAndUpdate({
-            otp
-        },
-            { password, confirmPassword, otp: undefined },
-            { runValidators: true, new: true });
+        let { otp, password, confirmPassword, email } = req.body;
+
+        //search user on basis of otp -> if expiryTime is not there
+        // if expiryTime is present then search user on basis of email
+        let user = await FoodUserModel.findOne({ email });
+        let currTime = Date.now();
+
+        if (currTime > user.otpExpiry) {
+            // delete key -> get user doc -> remove unwanted keys -> save to db
+            user.otp = undefined;
+            user.otpExpiry = undefined;
+            await user.save();
+
+            res.json({
+                message: "Otp Expired"
+            })
+        }
+        else {
+            if (user.otp != otp) {
+                res.json({
+                    message: "Otp doesn't match"
+                })
+            }
+            else {
+                user = await FoodUserModel.findOneAndUpdate(
+                    { otp, email },
+                    { password, confirmPassword },
+                    { runValidators: true, new: true });
+
+                // delete key -> get user doc -> remove unwanted keys -> save to db
+                user.otp = undefined;
+                user.otpExpiry = undefined;
+                await user.save();
+
+                res.json({
+                    data: user,
+                    message: "Password for the user resets"
+                })
+            }
+        }
 
         console.log(user);
-        res.json({
-            data: user,
-            message: "Password for the user resets"
-        })    
+
     } catch (error) {
-        res.end(error.message)
+        res.end(error.message);
     }
 })
 
@@ -132,7 +165,7 @@ app.get('/users', protectRoute, async (req, res) => {
     }
 })
 
-// Get single user information from database
+// Get single user information from database -- logged In user
 app.get('/user', protectRoute, async (req, res) => {
     try {
         const userId = req.userId;

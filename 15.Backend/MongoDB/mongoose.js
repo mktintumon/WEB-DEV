@@ -12,7 +12,7 @@
 
 const mongoose = require('mongoose');
 
-let dbLink = 'mongodb+srv://mktintumon:<password>@cluster0.krtav.mongodb.net/?retryWrites=true&w=majority'
+let dbLink = 'mongodb+srv://mktintumon:bDbe8vK07lqSnVrE@cluster0.krtav.mongodb.net/?retryWrites=true&w=majority'
 mongoose
     .connect(dbLink)
     .then(() => {
@@ -63,6 +63,9 @@ let userSchema = mongoose.Schema({
     },
     otp : {
         type: String,
+    },
+    otpExpiry : {
+        type : String,
     },
     address: {
         type: String,
