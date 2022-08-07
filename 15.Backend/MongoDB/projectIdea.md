@@ -1,10 +1,12 @@
 # Meal Plans delivery website -> EatFit clone
 
 ## pages
+
 * Home : 
     * Majorly Static
     * Top 3 Plans
     * Top 3 reviews
+
 * User
   * Login Page
   * Signup Page
@@ -13,6 +15,7 @@
   * Profile Page
       * user details : Email ,Name,img
       * Booked Plans
+      
 * Plans
   * All Plans
   * Plan Details
