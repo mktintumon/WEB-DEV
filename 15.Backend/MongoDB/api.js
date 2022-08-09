@@ -4,8 +4,8 @@ const app = express();
 // npm install cookie-parser
 const cookieParser = require("cookie-parser");
 
-const authRouter = require("./Routes/authRouters");
-const userRouter = require("./Routes/userRouters");
+const authRouter = require("./Routes/authRoutes");
+const userRouter = require("./Routes/userRoutes");
 
 app.use(express.json());
 app.use(cookieParser())

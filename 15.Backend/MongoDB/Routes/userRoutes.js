@@ -1,5 +1,6 @@
 const express = require('express');
 const userRouter = express.Router();
+const {protectRoute} = require('../Controller/authControllers')
 
 const { getAllUsersController, profileController }
     = require('../Controller/userControllers')
