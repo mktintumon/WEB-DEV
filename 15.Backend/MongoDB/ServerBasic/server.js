@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 
 //npm install jsonwebtoken
 const jwt = require("jsonwebtoken");
-const secrets = require("./secrets")
+const secrets = require("../secrets")
 
 //represent collections
 const FoodUserModel = require('./mongoose')
