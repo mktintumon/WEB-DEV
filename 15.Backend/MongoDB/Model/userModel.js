@@ -11,10 +11,10 @@
 */
 
 const mongoose = require('mongoose');
+let secret = require('../secrets')
 
-let dbLink = 'mongodb+srv://mktintumon:<password>@cluster0.krtav.mongodb.net/?retryWrites=true&w=majority'
 mongoose
-    .connect(dbLink)
+    .connect(secret.DB_LINK)
     .then(() => {
         console.log('DB connection established');
     })
