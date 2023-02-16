@@ -5,18 +5,17 @@ function sayHii(){
 sayHii() // function call
 
 function operator(a , b){
-     console.log('Addition = ' , a+b)
-     console.log('subtraction = ' , a-b)
-     console.log('Multiply =' , a*b)
-     console.log('Division =' , a/b)
-
+    console.log('Addition = ' , a+b)
+    console.log('subtraction = ' , a-b)
+    console.log('Multiply =' , a*b)
+    console.log('Division =' , a/b)
 }
 
 
 operator(10,5)
 
 // function as first class function
-//function Expression
+// function Expression
 
 let hello = function(){ // assign function to a variable
     console.log('say hello')
@@ -31,3 +30,10 @@ let add = (function(a,b){
 })(10 , 20)
 
 console.log(add)
+
+
+let concat = ((a,b)=>{
+    return a.concat(b)
+})('Mohit is ','smart')
+
+console.log(concat)

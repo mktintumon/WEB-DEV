@@ -44,4 +44,4 @@ let matrix = [
     [7 , 8, 9]
 ]
 
-console.log(matrix[2][1])
+console.log(matrix)

@@ -8,8 +8,7 @@ let obj = {} // object declaration
 let person = {
       name : 'Mohit',
       age : 20,
-      Phone : 12345
-           
+      Phone : 12345          
 }
 
 console.log(person)
@@ -56,8 +55,9 @@ for(let key in cap){
 
 cap.isAvenger = false // update a property of an object
 
-
-cap.movies = ['Age of Ultron' , 'First Avenger'] // add new Property to an object
+// add new Property to an object
+cap.movies = ['Age of Ultron' , 'First Avenger'] 
+cap.genre = 'fictional'
 
 
 delete cap.age // delete a propery from an object
