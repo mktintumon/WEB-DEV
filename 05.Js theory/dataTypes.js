@@ -22,7 +22,7 @@ let firstPerson = 'Hitesh'
 
 let secondPerson = firstPerson
 
-firstPerson = 'Arshad'
+firstPerson = 'Arshad' // re-initialized allowed in let
 
 console.log(firstPerson) // Arshad
 console.log(secondPerson) // Hitesh

@@ -4,7 +4,7 @@ console.log(a) // undefined in case of var
 
 greet() // print hello everyone
 
-var a = 2;
+let a = 2;
 
 function greet(){
     console.log("hello everyone")
