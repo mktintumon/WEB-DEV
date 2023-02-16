@@ -12,23 +12,14 @@ console.log('The length of string is' ,str.length)
 
 //1.slice
 //slice(start , end+1)
-
 let slicedStr = str.slice(3)
 console.log(slicedStr)
 
-//2. substr
-//substr(start , length)
-let subString = str.substr(3)
-console.log(subString)
 
-
-//Replacing String Content
-
+// Replacing String Content
 let sayHello = 'Hello Palak'
-console.log(sayHello) // Hello Palak
 
 //Replace Method
-
 //repalce(valueTobeReplaced , valueTobeReplacedWith)
 
 let sayBye = sayHello.replace('Hello' , 'Bye')
@@ -47,19 +38,14 @@ console.log(text2)
 let text3 = text1.toLowerCase()
 console.log(text3)
 
-// concatenation (Concat Method)
-
+// concatenation (concat Method)
 let firstString = 'Hello'
 let secondString = 'Ayush'
-
-//Hello Ayush
-
 let concatenation = firstString.concat(" bhai " , secondString)
 console.log(concatenation)
 
 
 //Trim method is used to remove all the whiteSpaces
-
 let text = '            Hello World          '
 console.log(text)
 
