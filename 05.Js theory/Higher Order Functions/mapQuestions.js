@@ -9,20 +9,18 @@ const products = [
 
   //return the count of price greater(>=) than 100
   let product = products.map(function(i){
-      
         return i.price
-      
   }).filter(function(price){
       return price >= 100
   }).length
 
-  console.log(product)
+console.log(product)
 
 
   
 // Question - 2 : Get the movie Names from this Array of Objects
 //method and only get the movie name which has rating higher than or equal to 8
-// use Filter and map  chaining to achaive the objective
+// use Filter and map  chaining to acheive the objective
 var newReleases = [
     {
            "id": 1,
@@ -58,7 +56,7 @@ console.log(movie)
 
 // Question-3 : 
 //You have to use map function and have to get all the students name in upperCase
-//Retrieve the details of students who scored more than 50 marks and have id greater than 120 from studentRecord 
+//Retrieve the details of students who scored more than 50 marks and have id greater than 120 
 //use filter method to approach the problem
 let studentRecords = [ {name: 'Abhishek', id: 123, marks : 98 },
           {name: 'Udai', id: 101, marks : 90 },

@@ -3,7 +3,7 @@
 // 1 .squaring element
 let arr =[1, 2, 3, 4, 5]
 
-let sqArr = arr.map(function square(i){
+let sqArr = arr.map(function (i){
     return i*i
 })
 
@@ -13,10 +13,8 @@ console.log(sqArr)
 // 2 .seperating name using map
 let nameArr = ['Mohit kumar' , 'Rajnish ranjan' , 'kaushal kanan']
 
-let seperateArr = nameArr.map(function separate(i){
-    let parts = i.split(' ')
-    
-    return parts
+let seperateArr = nameArr.map(function (i){
+    return i.split(' ')
 })
 
 console.log(seperateArr)
