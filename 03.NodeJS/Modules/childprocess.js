@@ -14,4 +14,5 @@ console.log('opened calculator')
 cp.execSync("code") // open vs code
 
 cp.execSync("start chrome https://github.com/mktintumon") // open->chrome->website
+cp.execSync("start firefox https://leetcode.com/mktintumon") // open->firefox->website
 

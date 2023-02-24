@@ -7,38 +7,39 @@ const fs = require('fs')
 
 const path = require('path')
 
-
-let content = fs.readFileSync('file1.txt')
+let content = fs.readFileSync('03.NodeJS\\Modules\\test.txt')
 console.log("This is file1 data->" + content)
 
-//Writing -> writeFileSync
-fs.writeFileSync('file2.txt' , 'hey mktintumon')
+//Writing -> writeFileSync -> updates the existing file
+fs.writeFileSync('03.NodeJS\\Modules\\test.txt' , 'hey Mohit , what are you doing')
 
-// if the passed file not present then it will create the passed file and do the process
-fs.writeFileSync('file3.txt' , 'this file is not present but fs created it and write in it')
+//if the passed file not present then it will create the passed file and do the process
+fs.writeFileSync('03.NodeJS\\Modules\\file.txt' , 'this file is not present but fs created it and write in it')
 
 //append a data -> appendFileSync -> adds new data in previously written data
-fs.appendFileSync('file1.txt', 'this is appended data')
+fs.appendFileSync('03.NodeJS\\Modules\\test.txt', '-> new data added by fs ')
 
 //delete a file -> unLinkSync
-fs.unlinkSync('file2.txt')
+fs.unlinkSync('03.NodeJS\\Modules\\file.txt')
+
+
 
 //************Directories(folders)***************//
 
 //create new folder -> mkdirSync
-fs.mkdirSync('mktintumon')
+fs.mkdirSync('03.NodeJS\\Modules\\folder1')
 
 //delete a folder-> rmdirSync
-fs.rmdirSync('mktintumon')
+fs.rmdirSync('C:\\Users\\HP\\OneDrive\\Desktop\\WEB-DEV\\03.NodeJS\\Modules\\mk')
 
 
 // To check whether a directory exists or not ->existsSync -> true or false
 //same for checking file exists or not
 
-let exist = fs.existsSync('mktintumon')
+let exist = fs.existsSync('folder1')
 console.log(exist)
 
-let statsOfDirectory = fs.lstatSync('mktintumon')
+let statsOfDirectory = fs.lstatSync('folder1')
 console.log(statsOfDirectory)
 
 console.log('isFile?' , statsOfDirectory.isFile()) //-> check is it file
@@ -49,15 +50,15 @@ console.log('isDirectory?', statsOfDirectory.isDirectory()) // -> check is it fo
 // readdirSync -> is a method which is used to check content inside a directory
 // convert single \ into double in the link -> for working in node
 
-let folderPath = 'C:\\Users\\HP\Desktop\\coding\\WEB-DEV\\Node\\mktintumon'
-let foldercontent = fs.readdirSync(folderpath)
+let folderPath = 'C:\\Users\\HP\\OneDrive\\Desktop\\WEB-DEV\\03.NodeJS\\Modules\\folder1'
+let foldercontent = fs.readdirSync(folderPath)
 console.log("Directory Content   "+ foldercontent)
 
 
 //copying path -> source path -> destination path
 
-let srcFilePath = 'C:\\Users\\HP\\Desktop\\coding\\WEB-DEV\\Node\\mktintumon\\f1.txt'
-let destFilePath = 'C:\\Users\\HP\\Desktop\\coding\\WEB-DEV\\Node\\mktintumon2'
+let srcFilePath = 'C:\\Users\\HP\\OneDrive\\Desktop\\WEB-DEV\\03.NodeJS\\Modules\\folder1\\f1.txt'
+let destFilePath = 'C:\\Users\\HP\\OneDrive\\Desktop\\WEB-DEV\\03.NodeJS\\Modules'
 
 let fileTobeCopied = path.basename(srcFilePath)
 console.log(fileTobeCopied)
