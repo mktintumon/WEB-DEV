@@ -36,12 +36,12 @@ function treeHelper(targetPath, indent){
         let children = fs.readdirSync(targetPath)
 
         for(let i=0 ; i<children.length ; i++){
-        let childPath = path.join(targetPath , children[i])
+            let childPath = path.join(targetPath , children[i])
 
-        //use recursion to repeat the process
-        treeHelper(childPath , indent + "\t")
+            //use recursion to repeat the process
+            treeHelper(childPath , indent + "\t")
 
-    }
+        }
   }
 }
 

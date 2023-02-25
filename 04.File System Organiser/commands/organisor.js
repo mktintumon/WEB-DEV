@@ -1,28 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 
-let types = {
-    media: ["mp4", "mkv", "mp3" , "jpg"],
-    archives: ["zip", "7z", "rar", "tar", "gz", "ar", "iso", "xz"],
-    documents: [
-      "docx",
-      "doc",
-      "pdf",
-      "xlsx",
-      "xls",
-      "odt",
-      "ods",
-      "odp",
-      "odg",
-      "odf",
-      "txt",
-      "ps",
-      "tex",
-    ],
-    app: ["exe", "dmg", "pkg", "deb"],
-  };
-
-
 function organisefn(dirname){
     let destPath;
     
@@ -37,13 +15,13 @@ function organisefn(dirname){
            if(doesExist==true){
                destPath = path.join(dirname , 'organised_file')
                 
-               //if folder path not exists then work , else already exists
-                 if(fs.existsSync(destPath)==false){
-                 fs.mkdirSync(destPath)
-                 }
-                 else{
-                 console.log('Folder already exists')
-                 }
+                //if folder path not exists then work , else already exists
+                if(fs.existsSync(destPath)==false){
+                    fs.mkdirSync(destPath)
+                }
+                else{
+                    console.log('Folder already exists')
+                }
             }
     
             else{
@@ -74,7 +52,13 @@ function organisefn(dirname){
     
     }
     
-    
+    let types = {
+        media: ["mp4", "mkv", "mp3" , "jpg"],
+        archives: ["zip", "7z", "rar", "tar", "gz", "ar", "iso", "xz"],
+        documents: ["docx","doc","pdf","xlsx","xls","odt","odf","txt"],
+        app: ["exe", "dmg", "pkg", "deb"],
+    };
+
     function getCategory(name){
         let ext = path.extname(name) // -> .txt .pdf .mp4
         ext = ext.slice(1)           // -> txt pdf mp4
