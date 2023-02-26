@@ -1,10 +1,15 @@
 const fs = require("fs");
+const path = require("path");
 
-let f1p = fs.promises.readFile("f1.txt");
+let link1 = path.join(__dirname,'/f1.txt');
+let link2 = path.join(__dirname,'/f2.txt');
+let link3 = path.join(__dirname,'/f3.txt');
 
-let f2p = fs.promises.readFile("f2.txt");
+let f1p = fs.promises.readFile(link1);
 
-let f3p = fs.promises.readFile("f3.txt");
+let f2p = fs.promises.readFile(link2);
+
+let f3p = fs.promises.readFile(link3);
 
 //As readFile is async js , so need a cb to operate
 function cb(data) {

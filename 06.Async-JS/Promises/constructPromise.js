@@ -1,10 +1,11 @@
-//      let myPromise = new Promise(function(resolve , reject){
+/*     let myPromise = new Promise(function(resolve , reject){
            // Your code will go here
-//      })
+      })
+*/
 
 let promise = new Promise(function (resolve, reject) {
     const a = 4;
-    const b = 4;
+    const b = 5;
   
     if (a === b) {
       resolve('Yes they are Equal');

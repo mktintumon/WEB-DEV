@@ -1,17 +1,20 @@
 const fs = require("fs");
+const path = require("path");
 
 console.log("Before");
 
-// fs.readFile('f1.txt' , function(err , data){
+let link = path.join(__dirname,'/f1.txt');
+
+// fs.readFile(link , function(err , data){
 //        if(err){
 //               console.log(err)
 //        }
 //        console.log('File Data -> ' + data)
 // })
 
-let promise = fs.promises.readFile("f1.txt");
+let promise = fs.promises.readFile(link);
 
-//console.log(promise)
+console.log(promise)
 
 //FullFilled
 promise.then(function (data) {

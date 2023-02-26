@@ -1,16 +1,16 @@
 
-function pFirstName(first , cb , cb2){ // cb-> pLastName ,  cb2-> pAge
-    console.log(first)
-    cb('kumar')
-    cb2('22')
+function studentDetails(name , cb , cb2){
+    console.log(name);
+    cb("22MCA0170")
+    cb2("BIHAR , INDIA")
 }
 
-function pLastName(last){
-    console.log(last)
+function regNo(number){
+    console.log(number);
 }
 
-function pAge(age){
-    console.log(age)
+function address(address){
+    console.log(address);
 }
 
-pFirstName('Mohit' , pLastName, pAge) // we pass two functions in pFirstName func as Argument
+studentDetails("Mohit kumar", regNo , address)
