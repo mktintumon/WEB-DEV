@@ -1,6 +1,6 @@
 const loginLink = "https://www.hackerrank.com/auth/login";
 
-// REFACTORING -> using async-await
+// REFACTORING -> using async-await -> extended version of promises
 
 let puppeteer = require("puppeteer");
 const codeFile = require("./code");

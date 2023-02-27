@@ -103,7 +103,7 @@ function questionSolver(page, question, answer) {
     questionWillBeClickedPromise
       .then(function () {
 
-        // first selecting editor area to solve the issue of not selecting custom input box
+        // first selecting editor area --> to solve the issue of not able to select custom input box
         let waitForEditorPromise = waitAndClick(".monaco-editor.no-user-select.vs",page);
         return waitForEditorPromise
 
@@ -121,6 +121,7 @@ function questionSolver(page, question, answer) {
 
       })
       .then(function () {
+        // keyboard automation --> starts
         let ctrlonHoldPromise = page.keyboard.down('Control')
         return ctrlonHoldPromise
 
