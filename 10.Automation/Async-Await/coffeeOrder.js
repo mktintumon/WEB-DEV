@@ -1,3 +1,35 @@
+// simple promise method of placing coffee order
+placeOrder("coffee")
+.then(function(orderInfo){
+    console.log(orderInfo);
+    return orderProcess(orderInfo);
+})
+.then(function(orderServed){
+    console.log(orderServed);
+})
+.catch(function(err){
+    console.log(err);
+});
+
+
+// Async Await -> makes the code cleaner -> extended version of promises
+// resolve -> try   and  reject -> catch
+async function coffeeOrder(){
+    try {
+        let order = await placeOrder('coffee')
+        console.log(order);
+        let processing = await orderProcess(order)
+        console.log(processing);
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+coffeeOrder();
+
+
+
 function placeOrder(orderName){
     return new Promise(function(resolve , reject){
         if(orderName === 'coffee'){
@@ -9,40 +41,16 @@ function placeOrder(orderName){
     })
 }
 
+// this function will always resolve as order already taken
 function orderProcess(order){
     return new Promise(function(resolve){
-        console.log('Order is processing')
-        resolve(`${order} served`)
+        console.log('Order is processing.....')
+        setTimeout(function(){
+            resolve(`${order} served`)
+        },5000)
     })
 }
 
-// solution via promise
-placeOrder('coffee')
-.then(function(demand){
-    console.log(demand)
-
-    let orderIsProcessed = orderProcess(demand)
-    return orderIsProcessed
-})
-.then(function(orderServed){
-    console.log(orderServed)
-}).catch(function(err){
-    console.log(err)
-})
 
 
-// solution via async-await
-async function serveOrder(){
-    try {
-        let orderPlaced = await placeOrder('coffee')
-        console.log(orderPlaced)
 
-        let processedOrder = await orderProcess(orderPlaced)
-        console.log(processedOrder)
-        
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-serveOrder()
