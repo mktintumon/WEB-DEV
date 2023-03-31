@@ -9,7 +9,6 @@
 
 
 
-
 // var regularFunction = function(name){
 //        console.log(`I am ${name}`)
 // }
@@ -23,10 +22,10 @@
 
 
 
-let test = () => {
-    console.log(this) // {}
-}
-test()
+// let test = () => {
+//     console.log(this) // {}
+// }
+// test()
 
 
 let person = {

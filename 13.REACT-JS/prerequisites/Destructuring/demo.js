@@ -1,6 +1,6 @@
 //Array
 
-let arr = ["Hi", "I", "am", "Mrinal"];
+let arr = ["Hi", "I", "am", "Mohit"];
 
 // let a = arr[1] // I
 // let b = arr[0] // Hi
@@ -17,39 +17,39 @@ console.log(a, b, c, d, e);
 
 
 // let obj = {
-//        name : 'Adam',
+//        pname : 'Adam',
 //        state : 'New York',
 //        pincode : 123456
 // }
 
 
-// let {state, name : firstName , pincode} = obj
+// let {state, pname , pincode} = obj
 
-// console.log(name , state , pincode)
+// console.log(pname , state , pincode)
 
 
 
 //Nested Objects - 
 
-let obj = {
+let obj2 = {
     name: "Adam",
     address: {
       country: "USA",
       state: {
         stateName: "New York",
-        pincode: 123456,
+        pin: 123456,
       },
     },
   };
 
 
-let {name} = obj
+let {name} = obj2
 
-let {address : {country:cd}} = obj
+let {address : {country}} = obj2
 
-let {address : {state : {pincode}}} = obj
+let {address : {state : {pin : pincode}}} = obj2
 
-console.log(cd)
+console.log(country)
 
 console.log(pincode)
 

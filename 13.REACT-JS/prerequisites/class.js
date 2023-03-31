@@ -4,11 +4,12 @@
 
 class Person {
     constructor(name, age) {
-      (this.name = name), (this.age = age);
+      (this.name = name), 
+      (this.age = age);
     }
 
     welcome(){
-        console.log('Hello ' + this.name)
+        console.log('Hello ' + this.name + ' of age ' + this.age)
     }
 }
 
@@ -18,6 +19,10 @@ class Teacher extends Person {
       super(name, age);
       this.classStrength = classStrength;
     }
+
+    hello(){
+      super.welcome() // func inherited from person
+  }
 }
   
 // inherited
@@ -38,6 +43,7 @@ let teacher1 = new Teacher("Steve", 40, 100);
 let student1 = new Student("Mark", 21, 8.0);
 
 person1.welcome()
+teacher1.hello()
 student1.hello()
 
 console.log(person1);

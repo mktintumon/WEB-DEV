@@ -9,13 +9,25 @@ let obj = {
     },
   };
   
-  let obj2 = {...obj , address : {...obj.address , state : {...obj.address.state}}  } // shallow copy
+
+  // In this spread operator will not work and dont change values
+  // PROBLEM resolved using 2 methods -> shallow or deep copy
+
+  // let obj2 = {...obj}
+  // obj2.address.country = "usa";
+
+
+  // SHALLOW COPY
+  let obj2 = {...obj , address : {...obj.address , state : {...obj.address.state}}  } 
+  obj2.address.country = "usa";
   
   obj.address.country = "India";
-  
   obj.address.state.pincode = 222222
   
-  //let obj2 = JSON.parse(JSON.stringify(obj)); // Deep Copy
+
+  // DEEP COPY
+  // let obj2 = JSON.parse(JSON.stringify(obj)); 
+  // obj2.address.country = "Russian"
   
   console.log(obj);
   console.log(obj2);
