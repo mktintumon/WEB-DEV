@@ -12,7 +12,7 @@ export class Todo extends Component {
 
 
    handleChange = (e) => {
-        console.log(e.target.value)
+        //console.log(e.target.value)
         this.setState({
             currTask : e.target.value
         })

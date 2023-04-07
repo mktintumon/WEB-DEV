@@ -4,6 +4,7 @@ let context = React.createContext(null);
 function Text() {
   const [firstName, setFirstName] = useState("Adam");
   const [lastName, setLastName] = useState("Smith");
+
   return (
     <context.Provider value={{ firstName, lastName }}>
       <h1>This is Parent Component</h1>
@@ -15,7 +16,7 @@ function Text() {
 function ChildA() {
   return (
     <>
-      This is ChildA Component.
+      <h2>This is ChildA Component.</h2>
       <br />
       <ChildB />
     </>
@@ -25,7 +26,7 @@ function ChildA() {
 function ChildB() {
   return (
     <>
-      This is ChildB Component.
+      <h3>This is ChildB Component.</h3>
       <br />
       <ChildC />
     </>
@@ -33,12 +34,13 @@ function ChildB() {
 }
 
 function ChildC() {
+  // destructuring happens here
   const { firstName, lastName } = useContext(context);
   return (
     <>
-      <h1>This is Child C</h1>
-      <h1>{firstName}</h1>
-      <h2>{lastName}</h2>
+      <h4>This is Child C</h4>
+      <h5>{firstName}</h5>
+      <h5>{lastName}</h5>
     </>
   );
 }
