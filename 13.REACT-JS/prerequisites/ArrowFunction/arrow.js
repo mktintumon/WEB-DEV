@@ -30,17 +30,23 @@
 
 let person = {
        name : 'Adam',
-       age : 27 ,
+       age : 24 ,
 
-       showDetails : function(){
+       // will not work
+       showDetailsArrow : ()=>{
               console.log(this.name + ' ' + this.age)
        },
 
-       showDetailsArrow : ()=>{
-              console.log(this.name + ' ' + this.age)
-       }
+       showDetails : function(){
+              console.log(this.name + ' ' + this.age);
+
+              // here arrow function will work - IIFE
+              (()=>{
+                     console.log(this.name + " " + this.age);
+              })();
+       },
 }
 
 
-person.showDetails()  // Adam 27
 person.showDetailsArrow() // undefined undefined
+person.showDetails()  // Adam 27
