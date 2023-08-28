@@ -9,8 +9,8 @@ function print(name , cb){
     cb("Kumar");
 }
 
-function secondName(second){
+function cb(second){
     console.log(second);
 }
 
-print("Mohit" , secondName)
+print("Mohit" , cb)
